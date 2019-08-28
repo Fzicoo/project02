@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.xiaomi.mapper.ShopMapper">
+  <resultMap id="ResultMapById" type="com.vip.xiaomi.domain.vo.ShopVo">
+    <!--@mbg.generated-->
+    <id column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="shop_msg" jdbcType="VARCHAR" property="shopMsg" />
+    <result column="original_price" jdbcType="DECIMAL" property="originalPrice" />
+    <result column="promote_price" jdbcType="DECIMAL" property="promotePrice" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="cate_id" jdbcType="INTEGER" property="cateId" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <collection property="shopImageList" resultMap="com.vip.xiaomi.mapper.ShopImageMapper.Base_shopImg">
+
+    </collection>
+  </resultMap>
+  <select id="findById" resultMap="ResultMapById">
+    select s.shop_id, s.shop_name, s.shop_msg, s.original_price, s.promote_price, s.stock, s.cate_id, s.title,
+        si.shop_img_id,si.shop_img
+    from shop s
+        left join shop_image si on si.shop_id = s.shop_id
+    where s.shop_id = #{id}
+  </select>
+  <select id="findByName" resultMap="ResultMapById">
+    select s.shop_id, s.shop_name, s.shop_msg, s.original_price, s.promote_price, s.stock, s.cate_id, s.title,
+    si.shop_img_id,si.shop_img
+    from shop s
+    left join shop_image si on si.shop_id = s.shop_id
+    where s.shop_name = #{name}  limit 1
+  </select>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.xiaomi.mapper.NavigationMapper">
+
+    <resultMap id="customResult" type="com.vip.xiaomi.domain.vo.NavigationVo">
+        <id property="navId" column="nav_id"/>
+        <result property="navName" column="nav_name"/>
+        <collection property="navMenuList" resultMap="com.vip.xiaomi.mapper.NavMenuMapper.Base_Nav_Vo">
+
+        </collection>
+    </resultMap>
+
+
+    <select id="findNavigation" resultMap="customResult">
+        select  *
+        from navigation n
+            left join nav_menu na on n.nav_id = na.nav_id
+    </select>
+</mapper>

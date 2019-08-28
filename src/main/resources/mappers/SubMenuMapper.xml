@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.xiaomi.mapper.SubMenuMapper">
+  <resultMap id="BaseResultMap" type="com.vip.xiaomi.domain.vo.SubMenuVo">
+    <!--@mbg.generated-->
+    <id column="sub_menu_id"  property="subMenuId" />
+    <result column="sub_name" property="subName" />
+    <result column="status"  property="status" />
+    <collection property="subMenuList" resultMap="com.vip.xiaomi.mapper.SubMenu1Mapper.Base_subMenu_Vo">
+
+    </collection>
+
+
+  </resultMap>
+
+  <select id="findMenu" resultMap="BaseResultMap">
+     select *
+     from sub_menu s
+        left join sub_menu1 sm1 on sm1.sub_menu_id = sm1.sub_menu_id
+  </select>
+
+
+</mapper>

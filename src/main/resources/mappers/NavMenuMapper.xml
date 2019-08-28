@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.xiaomi.mapper.NavMenuMapper">
+
+    <resultMap id="Base_Nav_Vo" type="com.vip.xiaomi.domain.entity.NavMenu">
+        <id column="menu_id" property="menuId"/>
+        <result property="menuName" column="menu_name"/>
+        <result property="menuPrice" column="menu_price"/>
+        <result property="navImg" column="nav_img"/>
+</resultMap>
+
+
+</mapper>

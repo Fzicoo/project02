@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.xiaomi.mapper.SubMenu1Mapper">
+  <resultMap id="Base_subMenu_Vo" type="com.vip.xiaomi.domain.entity.SubMenu1">
+    <id column="sub_menu1_id" property="subMenu1Id" />
+    <result column="sub_name1" property="subName1" />
+    <result column="sub_menu_id" property="subMenuId" />
+    <result column="sub_menu1_image_url" property="subMenu1ImageUrl" />
+    <result column="shop_id" property="shopId" />
+  </resultMap>
+
+</mapper>
